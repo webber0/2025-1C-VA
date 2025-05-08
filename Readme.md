@@ -46,15 +46,19 @@ Conviene comenzar definiendo un diccionario de etiquetas, usualmente una tabla n
 3. estrella
 En adelante, las tablas y el código manejarán el número de la etiqueta en lugar de su descripción.
 El dataset a construir consiste en una serie de muestras, cada una con una etiqueta.  En este caso las muestras son los 7 valores numéricos de los invariantes de Hu correspondientes a un contorno, y la etiqueta es un valor entero asignado a esa forma.  Los invariantes de Hu de una muestra tienen esta forma:
+
 	[  6.53608067e-04,   6.07480284e-16,  9.67218398e-18, 1.40311655e-19,
 	-1.18450102e-37,   8.60883492e-28, -1.12639633e-37  ]
+	
 Un dataset de invariantes de Hu es un array de dos dimensiones, con una fila para cada contorno analizado y 7 columnas para sendos invariantes de Hu.  El ejemplo ilustra un dataset de dos muestras:
-[
- [ 6.53608067e-04,   6.07480284e-16,  9.67218398e-18, 1.40311655e-19,
-  -1.18450102e-37,   8.60883492e-28, -1.12639633e-37  ],
- [ 6.53608067e-04,   6.07480284e-16,  9.67218398e-18, 1.40311655e-19,
-  -1.18450102e-37,   8.60883492e-28, -1.12639633e-37  ]
-]
+
+	[
+	[ 6.53608067e-04,   6.07480284e-16,  9.67218398e-18, 1.40311655e-19,
+	-1.18450102e-37,   8.60883492e-28, -1.12639633e-37  ],
+	[ 6.53608067e-04,   6.07480284e-16,  9.67218398e-18, 1.40311655e-19,
+	-1.18450102e-37,   8.60883492e-28, -1.12639633e-37  ]
+	]
+	
 El generador de descriptores es una aplicación similar al proyecto 1, que en lugar de clasificar sólo detecta el contorno, y cuando el usuario pulsa la tecla espacio imprime en terminal sus invariantes de Hu.
 Con esta aplicación se extraen invariantes de Hu de múltiples imágenes diferentes con la misma forma.  Por ejemplo se puede presentar un mismo cuadrado en diferentes posiciones, rotaciones y escalas, y se puede complementar con otros cuadrados ligeramente diferentes (por ejemplo dibujados a mano alzada).
 Luego de evaluar todas las imágenes, se copian los invariantes de Hu desde la terminal y se pegan en una hoja de cálculo, y se le agrega una columna con la etiqueta correspondiente.  El procedimiento se repite para cada forma que se quiera distinguir.  Una buena idea de cara a la etapa siguiente es mezclar aleatoriamente las filas.
