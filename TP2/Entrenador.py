@@ -48,4 +48,4 @@ plt.show()
 
 # 8. Esto para lo que es el clasificador
 # clasificador_cargado = load('modelo_entrenado.joblib')
-# y luego usarías clasificador_cargado.predict(nuevos_descriptores) para clasificar nuevas formas.
+# y luego se usaría clasificador_cargado.predict(nuevos_descriptores) para clasificar nuevas formas.
