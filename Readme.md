@@ -66,6 +66,7 @@ Luego de evaluar todas las imágenes, se copian los invariantes de Hu desde la t
 #### Entrenador
 Esta aplicación entrena la máquina y genera el modelo para inferencia.  Opera exclusivamente sobre el dataset, que puede estar guardado en archivos con algún formato adecuado para ser consumido por el algoritmo de machine learning, o bien se puede pegar directamente en el código con forma de array de dos dimensiones.  
 El código puede ser como sigue, requiere instalar scikit-learn:
+	
 	from sklearn import tree
 	from joblib import dump, load
 	
