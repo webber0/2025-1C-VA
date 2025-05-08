@@ -44,9 +44,10 @@ Conviene comenzar definiendo un diccionario de etiquetas, usualmente una tabla n
 1. cuadrado
 2. triángulo
 3. estrella
+
 En adelante, las tablas y el código manejarán el número de la etiqueta en lugar de su descripción.
 El dataset a construir consiste en una serie de muestras, cada una con una etiqueta.  En este caso las muestras son los 7 valores numéricos de los invariantes de Hu correspondientes a un contorno, y la etiqueta es un valor entero asignado a esa forma.  Los invariantes de Hu de una muestra tienen esta forma:
-
+	
 	[  6.53608067e-04,   6.07480284e-16,  9.67218398e-18, 1.40311655e-19,
 	-1.18450102e-37,   8.60883492e-28, -1.12639633e-37  ]
 	
