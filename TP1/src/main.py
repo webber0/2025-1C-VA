@@ -29,7 +29,7 @@ def cargar_contornos_referencia():
 
 webcam = cv.VideoCapture(0)
 
-# Barra para el umbral de binarización
+# Se crean las barras deslizantes para ajustar los parámetros (umbral binarización, tamaño de estructura, umbral de coincidencia de forma)
 cv.namedWindow("Ajustes")
 cv.createTrackbar("Umbral binarizacion", "Ajustes", 100, 255, lambda x: None)
 cv.createTrackbar("Tamaño estructura", "Ajustes", 1, 20, lambda x: None)
