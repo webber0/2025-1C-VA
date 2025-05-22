@@ -3,13 +3,13 @@ import mediapipe as mp
 import numpy as np
 import pandas as pd
 from sklearn.model_selection import train_test_split
-from sklearn.linear_model import LogisticRegression # Puedes cambiarlo por tu modelo preferido
+from sklearn.linear_model import LogisticRegression 
 from sklearn.metrics import accuracy_score
-import joblib # Para guardar y cargar el modelo entrenado
+import joblib 
 
 # --- CONFIGURACIÓN Y CARGA DE DATOS ---
-CSV_FILE = 'dataset_letras.csv' # ¡ASEGÚRATE DE QUE ESTE ARCHIVO EXISTA Y TENGA LOS DATOS!
-MODEL_SAVE_PATH = 'modelo_letras_mediapipe.pkl' # Ruta donde se guardará/cargará el modelo
+CSV_FILE = 'dataset_letras.csv'
+MODEL_SAVE_PATH = 'modelo_letras_mediapipe.pkl'
 
 # 1. Cargar el archivo CSV
 try:
@@ -33,25 +33,23 @@ if features.shape[1] != expected_features:
     print(f"Advertencia: El número de columnas de características en el CSV ({features.shape[1]}) no coincide con el esperado ({expected_features}).")
     print("Por favor, revisa la estructura de tu CSV para asegurarte de que tiene 1 columna para la letra y 63 columnas para las coordenadas.")
     print("Se espera el orden: x0...x20, y0...y20, z0...z20.")
-    # No salimos del programa, pero la predicción podría ser incorrecta.
 
 # Dividir los datos en conjuntos de entrenamiento y prueba
 #X_train, X_test, y_train, y_test = train_test_split(features, labels, test_size=0.2, random_state=42, stratify=labels)
 X_train, X_test, y_train, y_test = train_test_split(features, labels, test_size=0.2, random_state=42)
 
 # 3. Entrenar el modelo de clasificación
-# Puedes cambiar 'LogisticRegression' por el modelo que hayas usado (ej. RandomForestClassifier, SVC)
 model = LogisticRegression(max_iter=1000, solver='liblinear')
 print("\nEntrenando el modelo...")
 model.fit(X_train, y_train)
 print("Modelo entrenado.")
 
-# Evaluar el modelo (opcional, pero recomendado)
+# Evaluar el modelo
 y_pred = model.predict(X_test)
 accuracy = accuracy_score(y_test, y_pred)
 print(f"Precisión del modelo en el conjunto de prueba: {accuracy:.2f}")
 
-# 4. Guardar el modelo entrenado (recomendado para no entrenar cada vez)
+# 4. Guardar el modelo entrenado
 try:
     joblib.dump(model, MODEL_SAVE_PATH)
     print(f"Modelo guardado en: {MODEL_SAVE_PATH}")
@@ -103,10 +101,6 @@ while cap.isOpened():
                                    mp_draw.DrawingSpec(color=(255, 0, 0), thickness=2, circle_radius=2),
                                    mp_draw.DrawingSpec(color=(0, 255, 0), thickness=2, circle_radius=2))
 
-            # Extraer y reordenar las coordenadas de los puntos clave para que coincidan con tu CSV
-            # Tu CSV tiene x0...x20, y0...y20, z0...z20
-            # MediaPipe entrega lm.x, lm.y, lm.z para cada landmark (0 a 20)
-            
             coords_x = []
             coords_y = []
             coords_z = []
@@ -116,7 +110,7 @@ while cap.isOpened():
                 coords_y.append(lm.y)
                 coords_z.append(lm.z)
 
-            # Unir las listas en el orden esperado por tu CSV: [x0...x20, y0...y20, z0...z20]
+            # Unir las listas en el orden esperado
             keypoints_flat = coords_x + coords_y + coords_z
             
             # Convertir a array de NumPy para la predicción
