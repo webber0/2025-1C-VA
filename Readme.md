@@ -111,3 +111,10 @@ Al iniciar debe cargar el modelo desde su archivo, y luego, sobre cada contorno,
 
 
 La interfaz de usuario puede ser idéntica a la del proyecto anterior.  La etiqueta predicha es un número entero, se puede usar el diccionario para obtener la descripción de texto correspondiente.
+
+
+## Proyecto nº3: MediaPipe
+Enunciado libre, utilizando MediaPipe.
+* En este caso, se utiliza MediaPipe para el reconocimiento de lenguaje de señas, utilizando un dataset personalizado.
+* A la vez, permite la escritura de palabras, a partir del punto anterior
+## Proyecto nº4: ??
