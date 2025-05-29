@@ -7,7 +7,9 @@ Repositorio de TPs de la materia Visión Artificial
 ## Proyecto nº1: Detección y Clasificación de Formas
 ### Proyecto
 Los alumnos elegirán al menos tres objetos reconocibles por su contorno, usarán una imagen de cada uno como referencia de cada tipo de objeto, y les asignarán un nombre a cada uno.
+
 Prepararán el ambiente controlado para evitar correcciones por software que de otro modo pueden resultar muy demandantes, y así poder concentrarse en el objetivo del proyecto.
+
 El sistema detectará y clasificará los objetos en la imagen de la webcam en tiempo real.
 
 ### Proceso
