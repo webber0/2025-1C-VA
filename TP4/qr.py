@@ -77,7 +77,7 @@ while True:
     for pt in clicked_points:
         cv2.circle(display, pt, 5, (0, 0, 255), -1)
 
-    # Mostrar mensajes en la pantalla
+    #Establecer los colores de los textos
     if color_code == 'G':
         COLOR = (0,255,0)
     elif color_code == 'B':
@@ -86,7 +86,7 @@ while True:
         COLOR = (255,0,0)
     elif color_code == 'Y':
         COLOR = (255,255,0)
-
+    # Mostrar mensajes en la pantalla
     cv2.putText(display, display_message, (10, 30), cv2.FONT_HERSHEY_SIMPLEX, 0.5, COLOR, 2, cv2.LINE_AA)
 
 
@@ -94,6 +94,8 @@ while True:
     key = cv2.waitKey(1) & 0xFF
 
     if key == ord('q'):
+        if cv2.getWindowProperty("Vista Frontal", cv2.WND_PROP_VISIBLE):
+            cv2.destroyWindow("Vista Frontal")
         display_message = "Buscando código QR..."
         color_code = 'Y'
         retval, points = qr_detector.detect(frame)
@@ -108,6 +110,8 @@ while True:
             color_code = 'R'
 
     elif key == ord('h'):
+        if cv2.getWindowProperty("Vista Frontal", cv2.WND_PROP_VISIBLE):
+            cv2.destroyWindow("Vista Frontal")
         clicked_points = []
         collecting_points = True
         display_message = "Seleccioná 4 puntos con clic. (Aborta con cualquier tecla)"
