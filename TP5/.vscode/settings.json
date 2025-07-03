@@ -1,0 +1,8 @@
+{
+    "python.autoComplete.extraPaths": [],
+    
+    "python.analysis.diagnosticSeverityOverrides": {
+        "reportMissingModuleMember": "none"
+    },
+    "pylint.args": [ "--disable=E1101", "--disable=E0712", "--disable=C0116", "--disable=C0304", "--disable=E0401", "--disable=W1514", "disable=C0103"]
+}
